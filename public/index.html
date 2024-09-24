@@ -23,39 +23,7 @@
 
     <div id="response"></div>
 
-    <script>
-        document.getElementById('updateForm').addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            // Create a FormData object to hold the form data
-            const formData = new FormData();
-            const name = document.getElementById('name').value;
-            const photo = document.getElementById('photo').files[0];
-
-            formData.append('name', name); // Append the name field
-            formData.append('photo', photo); // Append the photo file
-
-            try {
-                const response = await fetch('/updateMe', {
-                    method: 'PATCH',
-                    headers: {
-                        'Authorization': 'Bearer YOUR_JWT_TOKEN' // Replace with your actual JWT token
-                    },
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    document.getElementById('response').innerHTML = 'Profile updated successfully!';
-                } else {
-                    document.getElementById('response').innerHTML = 'Error: ' + result.message;
-                }
-            } catch (error) {
-                document.getElementById('response').innerHTML = 'Error: ' + error.message;
-            }
-        });
-    </script>
+   
 </body>
 
 </html>
