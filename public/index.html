@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+</head>
+
+<body>
+    <h1>Update Profile</h1>
+
+    <!-- Form to upload the user photo -->
+    <form id="updateForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo"><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            // Create a FormData object to hold the form data
+            const formData = new FormData();
+            const name = document.getElementById('name').value;
+            const photo = document.getElementById('photo').files[0];
+
+            formData.append('name', name); // Append the name field
+            formData.append('photo', photo); // Append the photo file
+
+            try {
+                const response = await fetch('/updateMe', {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': 'Bearer YOUR_JWT_TOKEN' // Replace with your actual JWT token
+                    },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('response').innerHTML = 'Profile updated successfully!';
+                } else {
+                    document.getElementById('response').innerHTML = 'Error: ' + result.message;
+                }
+            } catch (error) {
+                document.getElementById('response').innerHTML = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+/controllers
+   carController.js
+   reservationController.js
+   contactController.js
+/models
+   carModel.js
+   reservationModel.js
+   contactModel.js
+/routes
+   carRoutes.js
+   reservationRoutes.js
+   contactRoutes.js
+/app.js (fichier principal pour démarrer l'application)
