@@ -10,5 +10,7 @@ router.get("/check/:carId", reservationController.checkAvailability);
 
 // Route pour lister toutes les réservations (admin seulement)
 router.get("/", reservationController.getAllReservations);
-
+router.delete("/:id", reservationController.deleteReservation);
+router.patch("/:id", reservationController.updateReservation);
+// 
 module.exports = router;

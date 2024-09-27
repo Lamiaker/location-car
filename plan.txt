@@ -11,3 +11,18 @@
    reservationRoutes.js
    contactRoutes.js
 /app.js (fichier principal pour démarrer l'application)
+
+
+
+
+    {
+        "car_image": "https://dreamsrent-wp.dreamstechnologies.com/wp-content/uploads/2020/03/car-02.jpg",
+        "car": "Honda Civic",
+        "name": "John Doe",
+        "location": 'oran',
+        "number": "987654321",
+        "pickup_date": "2023-06-10 14:30",
+        "return_date": "2024-06-10 14:30",
+        "price": 25,
+        "state": "confirmed"
+    },
